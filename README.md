@@ -97,7 +97,7 @@ Returns the number of subscribers to the current list
 	$results = $sendy->subcount();
 ```
 
-##getter and setter methods
+##Getter and Setter methods
 
 You can get or set the values of any of the private variables of the SendyLibrary class as follows.
 ```php
