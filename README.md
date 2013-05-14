@@ -9,29 +9,79 @@ A PHP class built to interface with the Sendy API
 * Place sendyLibrary.php into your file structure
 * Include or require the sendyLibrary in the location you would like to utilize it
 
-##Setup
+#Setup
 
-Edit the sendyLibrary.php
+Before using the library, you will need to modify the following code to match your installation.
+
+```php
+	private $installation_url = 'http://updates.mydomain.com'; //Your Sendy installation
+	private $api_key = 'yourapiKEYHERE'; //your API key is available in Settings
+	private $list_id; //Can be retrieved from "View all lists" page
+```
+
+__Note:__ The `$list_id` variable does not need to be set before using the library as it is a required parameter when instantiating the SendyLibrary class.
 
 
+#Usage
 
-/*FOR TESTING PURPOSES */
+To use the library, create an instance of the class including the list_id you are interested in working with as a parameter.
+```php
 
-$sendy = new SendyLibrary('3Xni96Lrt2wdMYl5Zjq8927Q');
-$sendy->list_id = "3Xni96Lrt2wdMYl5Zjq8927Q";
-echo $sendy->installation_url;
-echo $sendy->api_key;
-echo $sendy->list_id;
+	$sendy = new SendyLibrary('your_list_id_goes_here');
+	
+	//you can change the list_id you are referring to at any point
+	$sendy->list_id = "a_different_list_id";
+```
 
-$results['subscribe'] = $sendy->subscribe(array(
-								'name'=>'Jim',
-								'email' => 'Jim@gmail.com'
-							));
+#Methods
+After creating a new instance of the SendyLibrary call any of the methods below 
 
-$results['unsubscribe'] = $sendy->unsubscribe('Jake@gmail.com');
+##Return Values
+The return value of any of these functions will include both a status, and a message to go with that status.
 
-$results['substatus'] = $sendy->substatus('Jake@gmail.com');
+The status is a boolean value of `true` or `false` and the message will vary based on the type of action being performed.
 
-$results['subcount'] = $sendy->subcount();
+```php
+	//example return value
+	array(
+		'status'=>'true',
+		'message'=>'Already Subscribed'
+	)
+```
 
-print_r($results);
+I have commented and organized the code so as to be readable, if you have further questions on the status or messages being returned, please refer to the library comments.
+
+##subscribe(array $values)
+
+This method takes an array of `$values` and will attempt to add the `$values` into the list specified in `$list_id`
+
+```php
+	$results = $sendy->subscribe(array(
+						'name'=>'Jim',
+						'email' => 'Jim@gmail.com', //this is the only field required by sendy
+						'customfield1' => 'customValue'
+						));
+```
+__Note:__ Be sure to add any custom fields to the list in Sendy before utilizing them inside this library.
+
+##unsubscribe($email)
+
+Unsubscribes the provided e-mail address (if it exists) from the current list.
+```php
+	$results = $sendy->unsubscribe('test@testing.com');
+```
+
+##substatus($email)
+
+Returns the status of the user with the provided e-mail address (if it exists) in the current list.
+```php
+	$results = $sendy->substatus('test@testing.com');
+```
+__Note:__ refer to the code or see http://sendy.co/api for the types of return messages you can expect.
+
+##subcount()
+
+Returns the number of subscribers to the current list
+```php
+	$results = $sendy->subcount();
+```
