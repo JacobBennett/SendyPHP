@@ -12,7 +12,7 @@ class SendyLibrary
 	{
 		//error checking
 		if (!isset($list_id)) {throw new Exception("Required config parameter [list_id] is not set", 1);}
-		if (!isset($this->$installation_url)) {throw new Exception("Required config parameter [installation_url] is not set", 1);}
+		if (!isset($this->installation_url)) {throw new Exception("Required config parameter [installation_url] is not set", 1);}
 		if (!isset($this->api_key)) {throw new Exception("Required config parameter [api_key] is not set", 1);}
 
 		$this->list_id = $list_id;
