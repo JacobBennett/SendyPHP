@@ -27,7 +27,7 @@ class SendyLibrary
 
 		//Handle results
 		switch ($result) {
-			case true:
+			case 'true':
 					return array(
 					'status' => true,
 					'message' => 'Subscribed'
@@ -61,7 +61,7 @@ class SendyLibrary
 
 		//Handle results
 		switch ($result) {
-			case true:
+			case 'true':
 					return array(
 					'status' => true,
 					'message' => 'Unsubscribed'
