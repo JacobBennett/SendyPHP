@@ -23,11 +23,11 @@ class SendyLibrary
 		$type = 'subscribe';
 
 		//Send the subscribe
-		$result = $this->buildAndSend($type, $values);
+		$result = strval($this->buildAndSend($type, $values));
 
 		//Handle results
 		switch ($result) {
-			case 'true':
+			case '1':
 					return array(
 					'status' => true,
 					'message' => 'Subscribed'
@@ -57,11 +57,11 @@ class SendyLibrary
 		$type = 'unsubscribe';
 		
 		//Send the unsubscribe
-		$result = $this->buildAndSend($type, array('email' => $email));
+		$result = strval($this->buildAndSend($type, array('email' => $email)));
 
 		//Handle results
 		switch ($result) {
-			case 'true':
+			case '1':
 					return array(
 					'status' => true,
 					'message' => 'Unsubscribed'
