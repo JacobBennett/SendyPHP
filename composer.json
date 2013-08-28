@@ -9,7 +9,7 @@
     "repositories": [
         {
             "type": "vcs", 
-            "url": "git://github.com/jacobbennett/sendyphplibrary"
+            "url": "git://github.com/JacobBennett/SendyPHPLibrary"
         }
     ]
 }
