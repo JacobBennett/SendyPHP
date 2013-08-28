@@ -1,0 +1,15 @@
+{
+    "authors": [
+        {
+            "email": "me@jakebennett.net", 
+            "name": "Jacob Bennett"
+        }
+    ], 
+    "name": "jacobbennett/sendyphplibrary", 
+    "repositories": [
+        {
+            "type": "vcs", 
+            "url": "git://github.com/jacobbennett/sendyphplibrary"
+        }
+    ]
+}
