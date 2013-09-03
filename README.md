@@ -18,8 +18,8 @@ A PHP class built to interface with the Sendy API
 Before using the library, you will need to modify the following code to match your installation.
 
 ```php
-	private $installation_url = 'http://updates.mydomain.com'; //Your Sendy installation
-	private $api_key = 'yourapiKEYHERE'; //your API key is available in Settings
+	private $installation_url; //Your Sendy installation
+	private $api_key; //your API key is available in Settings
 	private $list_id; //Can be retrieved from "View all lists" page
 ```
 
@@ -31,7 +31,13 @@ __Note:__ The `$list_id` variable does not need to be set before using the libra
 To use the library, create an instance of the class including the list_id you are interested in working with as a parameter.
 ```php
 
-	$sendy = new SendyLibrary('your_list_id_goes_here');
+	$config = array(
+	'api_key' => 'yourapiKEYHERE', //your API key is available in Settings
+	'installation_url' => 'http://updates.mydomain.com',  //Your Sendy installation
+	'list_id' => 'your_list_id_goes_here'
+	);
+	
+	$sendy = new SendyLibrary($config);
 	
 	//you can change the list_id you are referring to at any point
 	$sendy->list_id = "a_different_list_id";
