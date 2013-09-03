@@ -4,19 +4,24 @@
 */
 class SendyLibrary
 {
-	private $installation_url = 'http://updates.mydomain.com';
-	private $api_key = 'yourapiKEYHERE';
+	private $installation_url;
+	private $api_key;
 	private $list_id;
 	
-	function __construct($list_id)
+	function __construct(array $config)
 	{
 		//error checking
+		$list_id = @$config['list_id'];
+		$installation_url = @$config['installation_url'];
+		$api_key = @$config['api_key'];
+		
 		if (!isset($list_id)) {throw new Exception("Required config parameter [list_id] is not set", 1);}
-		if (!isset($this->installation_url)) {throw new Exception("Required config parameter [installation_url] is not set", 1);}
-		if (!isset($this->api_key)) {throw new Exception("Required config parameter [api_key] is not set", 1);}
+		if (!isset($installation_url)) {throw new Exception("Required config parameter [installation_url] is not set", 1);}
+		if (!isset($api_key)) {throw new Exception("Required config parameter [api_key] is not set", 1);}
 
 		$this->list_id = $list_id;
-
+		$this->installation_url = $installation_url;
+		$this->api_key = $api_key;
 	}
 
 	public function subscribe(array $values) {
