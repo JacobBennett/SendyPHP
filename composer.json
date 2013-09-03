@@ -11,5 +11,10 @@
             "type": "vcs", 
             "url": "git://github.com/JacobBennett/SendyPHPLibrary"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": {
+          "SendyLibrary": "./"
+        }
+    },
 }
