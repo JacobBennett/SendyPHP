@@ -13,8 +13,6 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-          "SendyLibrary": "./"
-        }
-    },
+        "classmap": ["sendyLibrary.php"]
+    }
 }
