@@ -13,19 +13,6 @@ A PHP class built to interface with the Sendy API
 	require('sendyLibrary.php');
 ```
 
-#Setup
-
-Before using the library, you will need to modify the following code to match your installation.
-
-```php
-	private $installation_url; //Your Sendy installation
-	private $api_key; //your API key is available in Settings
-	private $list_id; //Can be retrieved from "View all lists" page
-```
-
-__Note:__ The `$list_id` variable does not need to be set before using the library as it is a required parameter when instantiating the SendyLibrary class.
-
-
 #Usage
 
 To use the library, create an instance of the class including the list_id you are interested in working with as a parameter.
