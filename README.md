@@ -19,9 +19,9 @@ To use the library, create an instance of the class including the list_id you ar
 ```php
 
 	$config = array(
-	'api_key' => 'yourapiKEYHERE', //your API key is available in Settings
-	'installation_url' => 'http://updates.mydomain.com',  //Your Sendy installation
-	'list_id' => 'your_list_id_goes_here'
+		'api_key' => 'yourapiKEYHERE', //your API key is available in Settings
+		'installation_url' => 'http://updates.mydomain.com',  //Your Sendy installation
+		'list_id' => 'your_list_id_goes_here'
 	);
 	
 	$sendy = new SendyLibrary($config);
