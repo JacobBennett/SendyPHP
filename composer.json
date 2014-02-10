@@ -5,7 +5,12 @@
             "name": "Jacob Bennett"
         }
     ], 
-    "name": "jacobbennett/sendyphplibrary", 
+    "name": "jacobbennett/sendyphplibrary",
+    "type": "library",
+    "description": "A PHP Library for interfacing with the Sendy newsletter system (http://sendy.co)",
+    "keywords": ["Sendy"],
+    "homepage": "git://github.com/JacobBennett/SendyPHPLibrary",
+    "license": "MIT",
     "repositories": [
         {
             "type": "vcs", 
