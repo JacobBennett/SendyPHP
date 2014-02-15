@@ -20,7 +20,7 @@ Next, update Composer from the Terminal:
 ### Old School (alternative option)
 
 * Place SendyPHP.php into your file structure
-* Include or require the sendyLibrary in the location you would like to utilize it
+* Include or require SendyPHP in the location you would like to utilize it
 
 ```php
 	require('SendyPHP.php');
@@ -28,7 +28,7 @@ Next, update Composer from the Terminal:
 
 #Usage
 
-To use the library, create an instance of the class including the list_id you are interested in working with as a parameter.
+Create an instance of the class while passing in an array including your API key, installation URL, and the List ID you wish to work with.
 ```php
 
 	$config = array(
