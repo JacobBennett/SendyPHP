@@ -3,8 +3,21 @@ Sendy-PHP-Library
 
 A PHP class built to interface with the Sendy API
 
+## Installation
 
-###Getting Started
+### Using Composer
+
+Begin by installing this package through Composer. Edit your project's `composer.json` file to require `jacobbennett/sendyphplibrary`.
+
+	"require": {
+		"jacobbennett/sendyphplibrary": "dev-master"
+	}
+
+Next, update Composer from the Terminal:
+
+    composer update
+
+### Old School (alternative option)
 
 * Place sendyLibrary.php into your file structure
 * Include or require the sendyLibrary in the location you would like to utilize it
