@@ -10,7 +10,7 @@ A PHP class built to interface with the Sendy API
 * Include or require the sendyLibrary in the location you would like to utilize it
 
 ```php
-	require('sendyLibrary.php');
+	require('SendyLibrary.php');
 ```
 
 #Usage
