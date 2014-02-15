@@ -40,7 +40,7 @@ Create an instance of the class while passing in an array including your API key
 	$sendy = new SendyPHP($config);
 	
 	//you can change the list_id you are referring to at any point
-	$sendy->list_id = "a_different_list_id";
+	$sendy->setListId("a_different_list_id");
 ```
 
 #Methods
