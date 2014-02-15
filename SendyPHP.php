@@ -2,11 +2,11 @@
 /**
 * Sendy Class
 */
-class SendyLibrary
+class SendyPHP
 {
-	private $installation_url;
-	private $api_key;
-	private $list_id;
+	protected $installation_url;
+	protected $api_key;
+	protected $list_id;
 	
 	function __construct(array $config)
 	{
@@ -22,6 +22,15 @@ class SendyLibrary
 		$this->list_id = $list_id;
 		$this->installation_url = $installation_url;
 		$this->api_key = $api_key;
+	}
+
+	public function setListId($list_id) {
+		if (!isset($list_id)) {throw new Exception("Required config parameter [list_id] is not set", 1);}
+		$this->list_id = $list_id;
+	}
+
+	public function getListId() {
+		return $this->list_id;
 	}
 
 	public function subscribe(array $values) {
@@ -170,27 +179,6 @@ class SendyLibrary
 
 		return $result;
 	}
-
-	/**
-	*	Magic methods below
-	*	http://www.php.net/manual/en/language.oop5.overloading.php
-	*/
-	public function __get($property) {
-
-	    if (property_exists($this, $property)) {
-      		return $this->$property;
-	    }
-
-	}
-
-  	public function __set($property, $value) {
-
-		    if (property_exists($this, $property)) {
-	      		$this->$property = $value;
-		    }
-
-		    return $this;
-  	}
 
 }
 

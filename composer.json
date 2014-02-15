@@ -1,7 +1,8 @@
 {
-    "name": "jacobbennett/sendyphplibrary",
+    "name": "jacobbennett/sendyphp",
     "description": "A PHP Library for interfacing with the Sendy newsletter system (http://sendy.co)",
-    "keywords": ["Sendy"],
+    "keywords": ["sendy", "newsletter"],
+    "liscense": "MIT",
     "authors": [
         {
             "email": "me@jakebennett.net", 
@@ -13,6 +14,6 @@
         "php": ">=5.2.0"
     },
     "autoload": {
-        "classmap": ["sendyLibrary.php"]
+        "classmap": ["SendyPHP.php"]
     }
 }

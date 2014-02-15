@@ -1,7 +1,7 @@
-Sendy-PHP-Library
+SendyPHP
 =================
 
-A PHP class built to interface with the Sendy API
+A PHP class built to interface with the Sendy API ([http://sendy.co](http://sendy.co))
 
 ## Installation
 
@@ -10,7 +10,7 @@ A PHP class built to interface with the Sendy API
 Begin by installing this package through Composer. Edit your project's `composer.json` file to require `jacobbennett/sendyphplibrary`.
 
 	"require": {
-		"jacobbennett/sendyphplibrary": "dev-master"
+		"jacobbennett/sendyphp": "dev-master"
 	}
 
 Next, update Composer from the Terminal:
@@ -19,11 +19,11 @@ Next, update Composer from the Terminal:
 
 ### Old School (alternative option)
 
-* Place sendyLibrary.php into your file structure
+* Place SendyPHP.php into your file structure
 * Include or require the sendyLibrary in the location you would like to utilize it
 
 ```php
-	require('SendyLibrary.php');
+	require('SendyPHP.php');
 ```
 
 #Usage
@@ -37,14 +37,14 @@ To use the library, create an instance of the class including the list_id you ar
 		'list_id' => 'your_list_id_goes_here'
 	);
 	
-	$sendy = new SendyLibrary($config);
+	$sendy = new SendyPHP($config);
 	
 	//you can change the list_id you are referring to at any point
 	$sendy->list_id = "a_different_list_id";
 ```
 
 #Methods
-After creating a new instance of the SendyLibrary call any of the methods below 
+After creating a new instance of SendyPHP call any of the methods below 
 
 ##Return Values
 The return value of any of these functions will include both a status, and a message to go with that status.
@@ -98,19 +98,19 @@ __Note:__ refer to the code or see http://sendy.co/api for the types of return m
 
 ##subcount()
 
-Returns the number of subscribers to the current list
+Returns the number of subscribers to the current list.
 ```php
 	$results = $sendy->subcount();
 ```
 
-##Getter and Setter methods
+##setListId($list_id) and getListId()
 
-You can get or set the values of any of the private variables of the SendyLibrary class as follows.
+Change or get the list you are currently working with.
 ```php
 	
-	//set the api_key value to something else
-	$sendy->api_key = '123456test';
+	//set or switch the list id
+	$sendy->setListId('another_list_id');
 	
-	//get the current sendy installation that you declared in the SendyLibrary.php
-	echo $sendy->installation_url;
+	//get the current list id
+	echo $sendy->getListId();
 ```
