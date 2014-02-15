@@ -1,22 +1,16 @@
 {
+    "name": "jacobbennett/sendyphplibrary",
+    "description": "A PHP Library for interfacing with the Sendy newsletter system (http://sendy.co)",
+    "keywords": ["Sendy"],
     "authors": [
         {
             "email": "me@jakebennett.net", 
             "name": "Jacob Bennett"
         }
-    ], 
-    "name": "jacobbennett/sendyphplibrary",
-    "type": "library",
-    "description": "A PHP Library for interfacing with the Sendy newsletter system (http://sendy.co)",
-    "keywords": ["Sendy"],
-    "homepage": "git://github.com/JacobBennett/SendyPHPLibrary",
-    "license": "MIT",
-    "repositories": [
-        {
-            "type": "vcs", 
-            "url": "git://github.com/JacobBennett/SendyPHPLibrary"
-        }
     ],
+    "require": {
+        "php": ">=5.2.0"
+    },
     "autoload": {
         "classmap": ["sendyLibrary.php"]
     }
