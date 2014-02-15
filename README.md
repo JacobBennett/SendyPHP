@@ -16,6 +16,10 @@ Begin by installing this package through Composer. Edit your project's `composer
 Next, update Composer from the Terminal:
 
     composer update
+    
+And finally, regenerate your autoload files:
+
+    composer dump-autoload
 
 ### Old School (alternative option)
 
