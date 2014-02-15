@@ -111,7 +111,6 @@ Returns the number of subscribers to the current list
 
 You can get or set the values of any of the private variables of the SendyLibrary class as follows.
 ```php
-	$sendy = new SendyLibrary('your_sendy_list_id');
 	
 	//set the api_key value to something else
 	$sendy->api_key = '123456test';
