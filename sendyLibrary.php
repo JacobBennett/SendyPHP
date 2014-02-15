@@ -159,9 +159,14 @@ class SendyLibrary
 		//build a query using the $content
 		$postdata = http_build_query($content);
 
-		$opts = array('http' => array('method'  => 'POST', 'header'  => 'Content-type: application/x-www-form-urlencoded', 'content' => $postdata));
-		$context  = stream_context_create($opts);
-		$result = file_get_contents($this->installation_url .'/'. $type, false, $context);
+		$ch = curl_init($this->installation_url .'/'. $type);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
+		$result = curl_exec($ch);
+		curl_close($ch);
 
 		return $result;
 	}
