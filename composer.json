@@ -5,7 +5,8 @@
     "authors": [
         {
             "email": "me@jakebennett.net", 
-            "name": "Jacob Bennett"
+            "name": "Jacob Bennett",
+            "homepage": "http://jakebennett.net",
         }
     ],
     "require": {
