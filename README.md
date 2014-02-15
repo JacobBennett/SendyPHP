@@ -7,7 +7,7 @@ A PHP class built to interface with the Sendy API ([http://sendy.co](http://send
 
 ### Using Composer
 
-Begin by installing this package through Composer. Edit your project's `composer.json` file to require `jacobbennett/sendyphplibrary`.
+Begin by installing this package through Composer. Edit your project's `composer.json` file to require `jacobbennett/sendyphp`.
 
 	"require": {
 		"jacobbennett/sendyphp": "dev-master"
