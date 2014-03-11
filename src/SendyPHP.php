@@ -1,6 +1,6 @@
 <?php
 
-namespace Sendy;
+namespace SendyPHP;
 
 /**
  * Sendy Class
