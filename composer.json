@@ -15,7 +15,7 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "1.*"
-    }
+    },
     "autoload": {
         "psr-4": {
             "SendyPHP\\": "src/"
