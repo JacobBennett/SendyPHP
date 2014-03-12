@@ -2,7 +2,7 @@
     "name": "jacobbennett/sendyphp",
     "description": "A PHP Library for interfacing with the Sendy newsletter system (http://sendy.co)",
     "keywords": ["sendy", "newsletter"],
-    "liscense": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "email": "me@jakebennett.net", 
