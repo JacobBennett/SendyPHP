@@ -12,9 +12,9 @@ class SendyPHPTest extends PHPUnit_Framework_TestCase
 	{
 
 		$config = [
-			'api_key' => 'YYmiXQYSdsaNPajCsgXP', //your API key is available in Settings
-			'installation_url' => 'http://sendy1.gigmor.com',  //Your Sendy installation
-			'list_id' => 'gN5763shyTsvSF7VkAtXXe7Q'//Users - vEpmBm892Lq3bp1f8Ebzg0NQ' //Users list
+			'api_key' => 'xxx', //your API key is available in Settings
+			'installation_url' => 'http://aaa.aaa.com',  //Your Sendy installation
+			'list_id' => 'xxx'//Users - vEpmBm892Lq3bp1f8Ebzg0NQ' //Users list
 		];
 
 		$sendy = new SendyPHP($config);
