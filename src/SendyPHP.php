@@ -19,15 +19,15 @@ class SendyPHP
         $api_key = @$config['api_key'];
         
         if (!isset($list_id)) {
-            throw new Exception("Required config parameter [list_id] is not set", 1);
+            throw new \Exception("Required config parameter [list_id] is not set", 1);
         }
         
         if (!isset($installation_url)) {
-            throw new Exception("Required config parameter [installation_url] is not set", 1);
+            throw new \Exception("Required config parameter [installation_url] is not set", 1);
         }
         
         if (!isset($api_key)) {
-            throw new Exception("Required config parameter [api_key] is not set", 1);
+            throw new \Exception("Required config parameter [api_key] is not set", 1);
         }
 
         $this->list_id = $list_id;
@@ -38,7 +38,7 @@ class SendyPHP
     public function setListId($list_id)
     {
         if (!isset($list_id)) {
-            throw new Exception("Required config parameter [list_id] is not set", 1);
+            throw new \Exception("Required config parameter [list_id] is not set", 1);
         }
         
         $this->list_id = $list_id;
@@ -151,7 +151,7 @@ class SendyPHP
 
         //handle exceptions
         if ($list== "" && $this->list_id == "") {
-            throw new Exception("method [subcount] requires parameter [list] or [$this->list_id] to be set.", 1);
+            throw new \Exception("method [subcount] requires parameter [list] or [$this->list_id] to be set.", 1);
         }
 
         //if a list is passed in use it, otherwise use $this->list_id
@@ -186,11 +186,11 @@ class SendyPHP
 
         //error checking
         if (!isset($type)) {
-            throw new Exception("Required config parameter [type] is not set", 1);
+            throw new \Exception("Required config parameter [type] is not set", 1);
         }
         
         if (!isset($values)) {
-            throw new Exception("Required config parameter [values] is not set", 1);
+            throw new \Exception("Required config parameter [values] is not set", 1);
         }
 
         //Global options for return
