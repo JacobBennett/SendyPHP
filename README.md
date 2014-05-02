@@ -120,6 +120,7 @@ All unit tests are located under src/test directory. To run the tests type in th
 ```php
 
 		#php vendor/bin/phpunit src/test/SendyPHPTest.php
+```
 
 Ensure that the API keys are setup for testing :
 ```php
@@ -129,4 +130,4 @@ Ensure that the API keys are setup for testing :
 			'installation_url' => 'http://my.sendy.installation.com',  //Your Sendy installation
 			'list_id' => 'xxx'// List ID
 		];
-
+```
