@@ -114,3 +114,19 @@ Change or get the list you are currently working with.
 	//get the current list id
 	echo $sendy->getListId();
 ```
+
+#Unit tests
+All unit tests are located under src/test directory. To run the tests type in the below from the project root.
+```php
+
+		#php vendor/bin/phpunit src/test/SendyPHPTest.php
+
+Ensure that the API keys are setup for testing :
+```php
+
+		$config = [
+			'api_key' => 'xxx', //your API key is available in Settings
+			'installation_url' => 'http://my.sendy.installation.com',  //Your Sendy installation
+			'list_id' => 'xxx'// List ID
+		];
+
