@@ -168,7 +168,7 @@ class SendyPHP
         ));
         
         //Handle the results
-        if (is_int($result)) {
+        if (is_numeric($result)) {
             return array(
                 'status' => true,
                 'message' => $result
