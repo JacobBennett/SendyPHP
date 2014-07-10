@@ -10,6 +10,7 @@ class SendyPHP
     protected $installation_url;
     protected $api_key;
     protected $list_id;
+    protected $http_request;
     
     public function __construct(array $config)
     {
@@ -17,6 +18,7 @@ class SendyPHP
         $list_id = @$config['list_id'];
         $installation_url = @$config['installation_url'];
         $api_key = @$config['api_key'];
+        $this->http_request = @$config['http_request'];
         
         if (!isset($list_id)) {
             throw new \Exception("Required config parameter [list_id] is not set", 1);
@@ -166,7 +168,7 @@ class SendyPHP
         ));
         
         //Handle the results
-        if (is_int($result)) {
+        if (is_numeric($result)) {
             return array(
                 'status' => true,
                 'message' => $result
@@ -205,15 +207,22 @@ class SendyPHP
         //build a query using the $content
         $postdata = http_build_query($content);
 
-        $ch = curl_init($this->installation_url .'/'. $type);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
-        $result = curl_exec($ch);
-        curl_close($ch);
+        $http_request = $this->getHttpRequest();
+        $http_request->setOption(CURLOPT_URL, $this->installation_url .'/'. $type);
+        $http_request->setOption(CURLOPT_HEADER, 0);
+        $http_request->setOption(CURLOPT_RETURNTRANSFER, 1);
+        $http_request->setOption(CURLOPT_FOLLOWLOCATION, 1);
+        $http_request->setOption(CURLOPT_POST, 1);
+        $http_request->setOption(CURLOPT_POSTFIELDS, $postdata);
+        $result = $http_request->execute();
 
         return $result;
+    }
+
+    protected function getHttpRequest() {
+        if (!$this->http_request) {
+            $this->http_request = new CurlRequest;
+        }
+        return $this->http_request;
     }
 }
