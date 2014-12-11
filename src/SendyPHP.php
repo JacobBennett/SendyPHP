@@ -10,7 +10,7 @@ class SendyPHP
     protected $installation_url;
     protected $api_key;
     protected $list_id;
-    
+
     public function __construct(array $config)
     {
         //error checking
@@ -40,7 +40,7 @@ class SendyPHP
         if (!isset($list_id)) {
             throw new \Exception("Required config parameter [list_id] is not set", 1);
         }
-        
+
         $this->list_id = $list_id;
     }
 
@@ -71,7 +71,7 @@ class SendyPHP
                     'message' => 'Already subscribed.'
                     );
                 break;
-            
+
             default:
                 return array(
                     'status' => false,
@@ -79,15 +79,12 @@ class SendyPHP
                     );
                 break;
         }
-
-
-
     }
 
     public function unsubscribe($email)
     {
         $type = 'unsubscribe';
-        
+
         //Send the unsubscribe
         $result = strval($this->buildAndSend($type, array('email' => $email)));
 
@@ -107,13 +104,12 @@ class SendyPHP
                     );
                 break;
         }
-
     }
 
     public function substatus($email)
     {
         $type = 'api/subscribers/subscription-status.php';
-        
+
         //Send the request for status
         $result = $this->buildAndSend($type, array(
             'email' => $email,
@@ -134,7 +130,7 @@ class SendyPHP
                     'message' => $result
                     );
                 break;
-            
+
             default:
                 return array(
                     'status' => false,
@@ -142,7 +138,6 @@ class SendyPHP
                     );
                 break;
         }
-
     }
 
     public function subcount($list = "")
@@ -164,9 +159,9 @@ class SendyPHP
             'api_key' => $this->api_key,
             'list_id' => $list
         ));
-        
+
         //Handle the results
-        if (is_int($result)) {
+        if (is_numeric($result)) {
             return array(
                 'status' => true,
                 'message' => $result
@@ -178,17 +173,15 @@ class SendyPHP
             'status' => false,
             'message' => $result
         );
-
     }
 
     private function buildAndSend($type, array $values)
     {
-
         //error checking
         if (!isset($type)) {
             throw new \Exception("Required config parameter [type] is not set", 1);
         }
-        
+
         if (!isset($values)) {
             throw new \Exception("Required config parameter [values] is not set", 1);
         }
