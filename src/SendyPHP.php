@@ -199,8 +199,11 @@ class SendyPHP
         $postdata = http_build_query($content);
 
         $ch = curl_init($this->installation_url .'/'. $type);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+
+        // Settings to disable SSL verification for testing (leave commented for production use)
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+
         curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/x-www-form-urlencoded"));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
