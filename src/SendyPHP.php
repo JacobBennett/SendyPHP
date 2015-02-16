@@ -10,6 +10,8 @@ class SendyPHP
     protected $installation_url;
     protected $api_key;
     protected $list_id;
+    protected $verify_ssl = 1;
+    protected $ca_file;
 
     public function __construct(array $config)
     {
@@ -17,6 +19,8 @@ class SendyPHP
         $list_id = @$config['list_id'];
         $installation_url = @$config['installation_url'];
         $api_key = @$config['api_key'];
+        $verify_ssl = @$config['verify_ssl'];
+        $ca_file = @$config['ca_file'];
         
         if (!isset($list_id)) {
             throw new \Exception("Required config parameter [list_id] is not set", 1);
@@ -33,6 +37,12 @@ class SendyPHP
         $this->list_id = $list_id;
         $this->installation_url = $installation_url;
         $this->api_key = $api_key;
+
+        if(isset($verify_ssl))
+            $this->verify_ssl = $verify_ssl;
+
+        if(isset($ca_file))
+            $this->ca_file = $ca_file;
     }
 
     public function setListId($list_id)
@@ -200,10 +210,15 @@ class SendyPHP
 
         $ch = curl_init($this->installation_url .'/'. $type);
 
-        // Settings to disable SSL verification for testing (leave commented for production use)
-        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        if( ! empty($this->ca_file)) {
+            curl_setopt($ch,CURLOPT_CAINFO,$this->ca_file);
+        }
 
+        if( ! $this->verify_ssl) {
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        } 
+        
         curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/x-www-form-urlencoded"));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
