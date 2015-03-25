@@ -18,16 +18,16 @@ class SendyPHP
         $installation_url = @$config['installation_url'];
         $api_key = @$config['api_key'];
         
-        if (!isset($list_id)) {
-            throw new \Exception("Required config parameter [list_id] is not set", 1);
+        if (empty($list_id)) {
+            throw new \Exception("Required config parameter [list_id] is not set or empty", 1);
         }
         
-        if (!isset($installation_url)) {
-            throw new \Exception("Required config parameter [installation_url] is not set", 1);
+        if (empty($installation_url)) {
+            throw new \Exception("Required config parameter [installation_url] is not set or empty", 1);
         }
         
-        if (!isset($api_key)) {
-            throw new \Exception("Required config parameter [api_key] is not set", 1);
+        if (empty($api_key)) {
+            throw new \Exception("Required config parameter [api_key] is not set or empty", 1);
         }
 
         $this->list_id = $list_id;
@@ -37,7 +37,7 @@ class SendyPHP
 
     public function setListId($list_id)
     {
-        if (!isset($list_id)) {
+        if (empty($list_id)) {
             throw new \Exception("Required config parameter [list_id] is not set", 1);
         }
 
@@ -144,15 +144,16 @@ class SendyPHP
     {
         $type = 'api/subscribers/active-subscriber-count.php';
 
+        //if a list is passed in use it, otherwise use $this->list_id
+        if (empty($list)) {
+            $list = $this->list_id;
+        }
+
         //handle exceptions
-        if ($list== "" && $this->list_id == "") {
+        if (empty($list)) {
             throw new \Exception("method [subcount] requires parameter [list] or [$this->list_id] to be set.", 1);
         }
 
-        //if a list is passed in use it, otherwise use $this->list_id
-        if ($list == "") {
-            $list = $this->list_id;
-        }
 
         //Send request for subcount
         $result = $this->buildAndSend($type, array(
@@ -178,12 +179,12 @@ class SendyPHP
     private function buildAndSend($type, array $values)
     {
         //error checking
-        if (!isset($type)) {
-            throw new \Exception("Required config parameter [type] is not set", 1);
+        if (empty($type)) {
+            throw new \Exception("Required config parameter [type] is not set or empty", 1);
         }
 
-        if (!isset($values)) {
-            throw new \Exception("Required config parameter [values] is not set", 1);
+        if (empty($values)) {
+            throw new \Exception("Required config parameter [values] is not set or empty", 1);
         }
 
         //Global options for return
