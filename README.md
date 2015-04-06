@@ -23,7 +23,7 @@ Next, update Composer from the Terminal:
 * Include or require SendyPHP in the location you would like to utilize it
 
 ```php
-	require('SendyPHP.php');
+	require('SendyPHP\SendyPHP.php');
 ```
 
 #Usage
