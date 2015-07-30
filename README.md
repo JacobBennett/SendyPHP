@@ -10,7 +10,7 @@ A PHP class built to interface with the Sendy API ([http://sendy.co](http://send
 Begin by installing this package through Composer. Edit your project's `composer.json` file to require `jacobbennett/sendyphp`.
 
 	"require": {
-		"jacobbennett/sendyphp": "dev-master"
+		"jacobbennett/sendyphp": "1.2.*"
 	}
 
 Next, update Composer from the Terminal:
@@ -37,7 +37,7 @@ Create an instance of the class while passing in an array including your API key
 		'list_id' => 'your_list_id_goes_here'
 	);
 	
-	$sendy = new SendyPHP($config);
+	$sendy = new \SendyPHP\SendyPHP($config);
 	
 	//you can change the list_id you are referring to at any point
 	$sendy->setListId("a_different_list_id");
@@ -73,10 +73,10 @@ This method takes an array of `$values` and will attempt to add the `$values` in
 
 ```php
 	$results = $sendy->subscribe(array(
-						'name'=>'Jim',
-						'email' => 'Jim@gmail.com', //this is the only field required by sendy
-						'customfield1' => 'customValue'
-						));
+		'name'=>'Jim',
+		'email' => 'Jim@gmail.com', //this is the only field required by sendy
+		'customfield1' => 'customValue'
+	));
 ```
 __Note:__ Be sure to add any custom fields to the list in Sendy before utilizing them inside this library.
 __Another Note:__ If a user is already subscribed to the list, the library will return a status of `true`. Feel free to edit the code to meet your needs.
