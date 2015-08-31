@@ -19,7 +19,7 @@ Next, update Composer from the Terminal:
 
 ### Non-Composer Installation
 
-* Place SendyPHP.php into your file structure.
+* Grab the `src/SendyPHP.php`file and place it into your file structure.
 * Require SendyPHP in the location you would like to utilize it.
 
 ```php
