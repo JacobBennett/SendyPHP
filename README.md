@@ -17,13 +17,13 @@ Next, update Composer from the Terminal:
 
     composer update
 
-### Old School (alternative option)
+### Non-Composer Installation
 
-* Place SendyPHP.php into your file structure
-* Include or require SendyPHP in the location you would like to utilize it
+* Place SendyPHP.php into your file structure.
+* Require SendyPHP in the location you would like to utilize it.
 
 ```php
-	require('SendyPHP\SendyPHP.php');
+	require('SendyPHP.php');
 ```
 
 #Usage
