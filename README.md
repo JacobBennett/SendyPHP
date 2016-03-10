@@ -109,8 +109,8 @@ This method takes an array of `$values` and will creates a campaign (with an opt
 ```php
 	$results = $sendy->createCampaign(array(
 		'from_name' => 'Some Name',
-		'from_email' => 'some@domain',
-		'reply_to' => 'some@domain',
+		'from_email' => 'some@domain.com',
+		'reply_to' => 'some@domain.com',
 		'subject' => 'Some Subject',
 		'plain_text' => 'Amazing campaign', // (optional).
 		'html_text' => '<h1>Amazing campaign</h1>',
