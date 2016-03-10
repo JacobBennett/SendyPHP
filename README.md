@@ -103,6 +103,24 @@ Returns the number of subscribers to the current list.
 	$results = $sendy->subcount();
 ```
 
+##createCampaign(array $values)
+
+This method takes an array of `$values` and will creates a campaign (with an option to send it too).
+```php
+	$results = $sendy->createCampaign(array(
+		'from_name' => 'Some Name',
+		'from_email' => 'some@domain',
+		'reply_to' => 'some@domain',
+		'subject' => 'Some Subject',
+		'plain_text' => 'Amazing campaign', // (optional).
+		'html_text' => '<h1>Amazing campaign</h1>',
+		'list_ids' => 'your_list_id', // Required only if you set send_campaign to 1.
+		'brand_id' => 0, // Required only if you are creating a 'Draft' campaign.
+		'query_string' => 'some', // eg. Google Analytics tags.
+		'send_campaign' => 0 // Set to 1 if you want to send the campaign as well and not just create a draft. Default is 0.
+	));
+```
+
 ##setListId($list_id) and getListId()
 
 Change or get the list you are currently working with.
