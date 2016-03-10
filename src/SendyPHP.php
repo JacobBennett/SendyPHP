@@ -176,6 +176,40 @@ class SendyPHP
         );
     }
 
+    public function createCampaign(array $values)
+    {
+        $type = 'api/campaigns/create.php';
+
+        //Global options
+        $global_options = array(
+            'api_key' => $this->api_key
+        );
+
+        //Merge the passed in values with the global options
+        $values = array_merge($global_options, $values);
+
+        //Send request for campaign
+        $result = $this->buildAndSend($type, $values);
+
+        //Handle the results
+        switch ($result) {
+            case 'Campaign created':
+            case 'Campaign created and now sending':
+                return array(
+                    'status' => true,
+                    'message' => $result
+                );
+                break;
+
+            default:
+                return array(
+                    'status' => false,
+                    'message' => $result
+                );
+                break;
+        }
+    }
+
     private function buildAndSend($type, array $values)
     {
         //error checking
