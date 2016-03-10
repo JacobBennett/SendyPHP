@@ -10,7 +10,7 @@ A PHP class built to interface with the Sendy API ([http://sendy.co](http://send
 Begin by installing this package through Composer. Edit your project's `composer.json` file to require `jacobbennett/sendyphp`.
 
 	"require": {
-		"jacobbennett/sendyphp": "1.2.*"
+		"jacobbennett/sendyphp": "1.3.*"
 	}
 
 Next, update Composer from the Terminal:
@@ -101,6 +101,24 @@ __Note:__ refer to the code or see http://sendy.co/api for the types of return m
 Returns the number of subscribers to the current list.
 ```php
 	$results = $sendy->subcount();
+```
+
+##createCampaign(array $values)
+
+This method takes an array of `$values` and will creates a campaign (with an option to send it too).
+```php
+	$results = $sendy->createCampaign(array(
+		'from_name' => 'Some Name',
+		'from_email' => 'some@domain.com',
+		'reply_to' => 'some@domain.com',
+		'subject' => 'Some Subject',
+		'plain_text' => 'Amazing campaign', // (optional).
+		'html_text' => '<h1>Amazing campaign</h1>',
+		'list_ids' => 'your_list_id', // Required only if you set send_campaign to 1.
+		'brand_id' => 0, // Required only if you are creating a 'Draft' campaign.
+		'query_string' => 'some', // eg. Google Analytics tags.
+		'send_campaign' => 0 // Set to 1 if you want to send the campaign as well and not just create a draft. Default is 0.
+	));
 ```
 
 ##setListId($list_id) and getListId()
