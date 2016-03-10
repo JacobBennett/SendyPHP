@@ -10,7 +10,7 @@ A PHP class built to interface with the Sendy API ([http://sendy.co](http://send
 Begin by installing this package through Composer. Edit your project's `composer.json` file to require `jacobbennett/sendyphp`.
 
 	"require": {
-		"jacobbennett/sendyphp": "1.2.*"
+		"jacobbennett/sendyphp": "1.3.*"
 	}
 
 Next, update Composer from the Terminal:
