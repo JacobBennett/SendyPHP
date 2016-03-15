@@ -1,8 +1,8 @@
 SendyPHP
 =================
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-pjax.svg?style=flat-square)](https://packagist.org/packages/jacobbennett/sendyphp)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-pjax.svg?style=flat-square)](https://packagist.org/packages/jacobbennett/sendyphp)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/jacobbennett/sendyphp.svg?style=flat-square)](https://packagist.org/packages/jacobbennett/sendyphp)
+[![Total Downloads](https://img.shields.io/packagist/dt/jacobbennett/sendyphp.svg?style=flat-square)](https://packagist.org/packages/jacobbennett/sendyphp)
 
 A PHP class built to interface with the Sendy API ([http://sendy.co](http://sendy.co))
 
