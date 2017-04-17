@@ -29,7 +29,7 @@ Next, update Composer from the Terminal:
 	require('SendyPHP.php');
 ```
 
-#Usage
+# Usage
 
 Create an instance of the class while passing in an array including your API key, installation URL, and the List ID you wish to work with.
 ```php
@@ -46,10 +46,10 @@ Create an instance of the class while passing in an array including your API key
 	$sendy->setListId("a_different_list_id");
 ```
 
-#Methods
+# Methods
 After creating a new instance of SendyPHP call any of the methods below 
 
-##Return Values
+## Return Values
 The return value of any of these functions will include both a status, and a message to go with that status.
 
 The status is a boolean value of `true` or `false` and the message will vary based on the type of action being performed.
@@ -70,7 +70,7 @@ The status is a boolean value of `true` or `false` and the message will vary bas
 
 I have commented and organized the code so as to be readable, if you have further questions on the status or messages being returned, please refer to the library comments.
 
-##subscribe(array $values)
+## subscribe(array $values)
 
 This method takes an array of `$values` and will attempt to add the `$values` into the list specified in `$list_id`
 
@@ -84,14 +84,14 @@ This method takes an array of `$values` and will attempt to add the `$values` in
 __Note:__ Be sure to add any custom fields to the list in Sendy before utilizing them inside this library.
 __Another Note:__ If a user is already subscribed to the list, the library will return a status of `true`. Feel free to edit the code to meet your needs.
 
-##unsubscribe($email)
+## unsubscribe($email)
 
 Unsubscribes the provided e-mail address (if it exists) from the current list.
 ```php
 	$results = $sendy->unsubscribe('test@testing.com');
 ```
 
-##substatus($email)
+## substatus($email)
 
 Returns the status of the user with the provided e-mail address (if it exists) in the current list.
 ```php
@@ -99,14 +99,14 @@ Returns the status of the user with the provided e-mail address (if it exists) i
 ```
 __Note:__ refer to the code or see http://sendy.co/api for the types of return messages you can expect.
 
-##subcount()
+## subcount()
 
 Returns the number of subscribers to the current list.
 ```php
 	$results = $sendy->subcount();
 ```
 
-##createCampaign(array $values)
+## createCampaign(array $values)
 
 This method takes an array of `$values` and will creates a campaign (with an option to send it too).
 ```php
@@ -124,7 +124,7 @@ This method takes an array of `$values` and will creates a campaign (with an opt
 	));
 ```
 
-##setListId($list_id) and getListId()
+## setListId($list_id) and getListId()
 
 Change or get the list you are currently working with.
 ```php
@@ -136,7 +136,7 @@ Change or get the list you are currently working with.
 	echo $sendy->getListId();
 ```
 
-#Unit tests
+# Unit tests
 All unit tests are located under src/test directory. To run the tests type in the below from the project root.
 ```shell
 		php vendor/bin/phpunit src/test/SendyPHPTest.php
