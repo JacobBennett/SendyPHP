@@ -54,6 +54,7 @@ class SendyPHP
         $type = 'subscribe';
 
         //Send the subscribe
+        $values = array_merge($values, array('api_key' => $this->api_key)); //add api key
         $result = strval($this->buildAndSend($type, $values));
 
         //Handle results
@@ -86,7 +87,7 @@ class SendyPHP
         $type = 'unsubscribe';
 
         //Send the unsubscribe
-        $result = strval($this->buildAndSend($type, array('email' => $email)));
+        $result = strval($this->buildAndSend($type, array('email' => $email, 'api_key' => $this->api_key))); //add api key
 
         //Handle results
         switch ($result) {
