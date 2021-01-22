@@ -107,6 +107,36 @@ class SendyPHP
         }
     }
 
+    public function delete($email)
+    {
+        //Note: only supported in Sendy version 2.1.1.4 and above
+        $type = 'api/subscribers/delete.php';
+
+        //Send the request to delete
+        $result = $this->buildAndSend($type, array(
+            'api_key' => $this->api_key,
+            'list_id' => $this->list_id,
+            'email' => $email
+        ));
+
+        //Handle the results
+        switch ($result) {
+            case '1':
+                return array(
+                    'status' => true,
+                    'message' => 'Deleted'
+                );
+                break;
+
+            default:
+                return array(
+                    'status' => false,
+                    'message' => $result
+                );
+                break;
+        }
+    }
+
     public function substatus($email)
     {
         $type = 'api/subscribers/subscription-status.php';
